@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vantage Notary</title>
+    <meta name="description" content="Contact Vantage Notary for professional notarization services in the Bluffton and Fort Wayne areas. Schedule appointments for mobile, remote, or in-person services.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/enhanced-design.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/vantage_notary_logo.png" alt="Vantage Notary Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 60px 0; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/notary_banner.png');">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Reach out to schedule an appointment or learn more about our services.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <div class="gold-accent"></div>
+                    <form onsubmit="return validateContactForm()">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a Service</option>
+                                <option value="notary">Notary Public</option>
+                                <option value="loan">Loan Signing</option>
+                                <option value="remote">Remote Notary</option>
+                                <option value="fingerprinting">Digital Fingerprinting</option>
+                                <option value="mobile">Mobile Services</option>
+                                <option value="other">Other/Not Sure</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h2 style="color: var(--white);">Get in Touch</h2>
+                    <div class="gold-accent"></div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3 style="color: var(--white); margin-bottom: 5px;">Phone</h3>
+                            <p>(317) 555-1234</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3 style="color: var(--white); margin-bottom: 5px;">Email</h3>
+                            <p>info@vantagenotary.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3 style="color: var(--white); margin-bottom: 5px;">Service Area</h3>
+                            <p>Bluffton, Fort Wayne, and surrounding areas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3 style="color: var(--white); margin-bottom: 5px;">Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Evenings & Weekends: By appointment</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: var(--white);">Response Time</h3>
+                        <p>We typically respond to all inquiries within 24 hours during business days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section map-section">
+        <div class="container">
+            <h2 class="text-center">Our Service Area</h2>
+            <div class="gold-accent" style="width: 100px; margin: 20px auto;"></div>
+            <p class="text-center">We proudly serve the Bluffton and Fort Wayne areas with mobile notary services.</p>
+            
+            <div id="map" class="map-container"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 style="color: var(--gold);">Vantage Notary</h3>
+                    <p>Professional notarization services in the Bluffton and Fort Wayne areas.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 style="color: var(--gold);">Services</h3>
+                    <ul>
+                        <li><a href="notary-public.html">Notary Public</a></li>
+                        <li><a href="loan-signing.html">Loan Signing Agent</a></li>
+                        <li><a href="remote-notary.html">Remote Notary</a></li>
+                        <li><a href="digital-fingerprinting.html">Digital Fingerprinting</a></li>
+                        <li><a href="mobile-services.html">Mobile Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 style="color: var(--gold);">Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (317) 555-1234</li>
+                        <li><i class="fas fa-envelope"></i> info@vantagenotary.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Serving Bluffton & Fort Wayne</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p style="color: var(--gold);">&copy; 2025 Vantage Notary and Signature Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/enhanced-main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>

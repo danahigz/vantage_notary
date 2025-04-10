@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage Notary - Design Comparison</title>
+    <style>
+        :root {
+            --dark-navy: #1A365D;
+            --gold: #C9A95C;
+            --slate: #718096;
+            --light-bg: #f0f0f5;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--dark-navy);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-row {
+            display: flex;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .comparison-col {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .original {
+            background-color: #f0f0f5;
+        }
+        
+        .enhanced {
+            background: linear-gradient(135deg, #f0f0f5 0%, #e8eaf6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enhanced::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(201, 169, 92, 0.1);
+            z-index: 0;
+        }
+        
+        .enhanced::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: rgba(26, 54, 93, 0.05);
+            z-index: 0;
+        }
+        
+        h2 {
+            color: var(--dark-navy);
+            margin-top: 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .comparison-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--dark-navy);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Original Elements */
+        .original-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--dark-navy);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        
+        .original-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .original-section {
+            background-color: #f0f0f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .original-accent {
+            height: 3px;
+            background-color: var(--gold);
+            width: 50px;
+            margin: 10px 0;
+        }
+        
+        /* Enhanced Elements */
+        .enhanced-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--dark-navy);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 0;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+                        -5px -5px 10px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .enhanced-button:hover {
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1),
+                        -3px -3px 6px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+        
+        .enhanced-card {
+            border-radius: 12px;
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1),
+                        -8px -8px 16px rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+            background: linear-gradient(145deg, #ffffff, #f0f0f5);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .enhanced-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.15),
+                        -12px -12px 20px rgba(255, 255, 255, 0.9);
+        }
+        
+        .enhanced-section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8eaf6 0%, #f0f0f5 100%);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05),
+                        -5px -5px 10px rgba(255, 255, 255, 0.8);
+            z-index: 1;
+        }
+        
+        .enhanced-section::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 30% 70% 50% 50% / 50%;
+            background: rgba(201, 169, 92, 0.05);
+            top: -75px;
+            right: -75px;
+            z-index: 0;
+        }
+        
+        .enhanced-accent {
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), rgba(201, 169, 92, 0.3));
+            width: 50px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        
+        .description {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .description h3 {
+            color: var(--dark-navy);
+            margin-top: 0;
+        }
+        
+        .description ul {
+            padding-left: 20px;
+        }
+        
+        .description li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .instructions h2 {
+            color: var(--dark-navy);
+            margin-top: 0;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="comparison-container">
+        <h1>Vantage Notary Website - Design Comparison</h1>
+        
+        <div class="instructions">
+            <h2>How to View the Enhanced Website</h2>
+            <ol>
+                <li>Extract the <code>vantage_notary_website_enhanced.zip</code> file you received</li>
+                <li>Navigate to the <code>public</code> folder</li>
+                <li>Open any HTML file (like <code>index.html</code>) in a web browser (not just in VS Code)</li>
+                <li>The browser will render all CSS and JavaScript enhancements</li>
+                <li>Scroll through the page to see animations and hover over elements to see interactive effects</li>
+            </ol>
+        </div>
+        
+        <div class="comparison-row">
+            <div class="comparison-col original">
+                <h2>Original Design</h2>
+                <div class="original-section">
+                    <div class="comparison-title">Background</div>
+                    <p>Flat, solid light blue-gray background with no visual interest or depth.</p>
+                </div>
+            </div>
+            <div class="comparison-col enhanced">
+                <h2>Enhanced Design</h2>
+                <div class="enhanced-section">
+                    <div class="comparison-title">Background</div>
+                    <p>Subtle gradient background with geometric accent shapes that add visual interest and depth.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison-row">
+            <div class="comparison-col original">
+                <h2>Original Design</h2>
+                <div class="comparison-title">Button Style</div>
+                <button class="original-button">Contact Us</button>
+                <p>Flat button with no depth or interaction effects.</p>
+            </div>
+            <div class="comparison-col enhanced">
+                <h2>Enhanced Design</h2>
+                <div class="comparison-title">Button Style</div>
+                <button class="enhanced-button">Contact Us</button>
+                <p>Neumorphic button with soft shadows that create a 3D effect. Hover over to see animation.</p>
+            </div>
+        </div>
+        
+        <div class="comparison-row">
+            <div class="comparison-col original">
+                <h2>Original Design</h2>
+                <div class="comparison-title">Card Elements</div>
+                <div class="original-card">
+                    <h3>Notary Public Services</h3>
+                    <div class="original-accent"></div>
+                    <p>Professional notarization services for all your document needs.</p>
+                </div>
+            </div>
+            <div class="comparison-col enhanced">
+                <h2>Enhanced Design</h2>
+                <div class="comparison-title">Card Elements</div>
+                <div class="enhanced-card">
+                    <h3>Notary Public Services</h3>
+                    <div class="enhanced-accent"></div>
+                    <p>Professional notarization services for all your document needs.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="description">
+            <h3>Key Visual Enhancements</h3>
+            <ul>
+                <li><strong>Gradient Backgrounds:</strong> Replaced flat backgrounds with subtle gradients using your brand colors</li>
+                <li><strong>Geometric Accent Elements:</strong> Added tasteful shapes and patterns that incorporate your brand colors</li>
+                <li><strong>Neumorphic UI:</strong> Implemented soft 3D effects for buttons, cards, and interactive elements</li>
+                <li><strong>Layered Design:</strong> Created depth with overlapping sections and subtle shadows</li>
+                <li><strong>Section Differentiation:</strong> Used varying background treatments to clearly separate content sections</li>
+                <li><strong>Subtle Animations:</strong> Added minimal scroll-triggered animations for key elements (visible when viewing in browser)</li>
+                <li><strong>Enhanced Accents:</strong> Replaced flat color accents with gradient treatments</li>
+            </ul>
+            
+            <p>These enhancements create a more visually engaging website while maintaining the professional, trustworthy appearance that's essential for your notary business.</p>
+        </div>
+    </div>
+</body>
+</html>

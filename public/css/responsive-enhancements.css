@@ -1,0 +1,184 @@
+/* Additional Responsive Enhancements for Vantage Notary Website */
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve mobile navigation */
+@media (max-width: 768px) {
+  .header-container {
+    position: relative;
+    padding: 15px 0;
+  }
+  
+  .mobile-menu-btn {
+    z-index: 100;
+  }
+  
+  .nav-menu {
+    background-color: var(--light-blue-gray);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+  
+  .nav-menu li {
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  /* Improve service cards on mobile */
+  .service-card {
+    margin-bottom: 20px;
+  }
+  
+  /* Adjust service detail pages for mobile */
+  .service-detail {
+    padding: 25px;
+  }
+  
+  /* Improve form elements on mobile */
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+  
+  /* Adjust buttons for better touch targets */
+  .btn {
+    padding: 12px 24px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .section {
+    padding: 30px 0;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Adjust service info grid for very small screens */
+  .service-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Adjust footer for very small screens */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 577px) and (max-width: 992px) {
+  .service-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero {
+    padding: 60px 0;
+  }
+  
+  /* Improve spacing on tablets */
+  .section {
+    padding: 50px 0;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 40px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .nav-menu {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  header, footer, .hero-buttons, .mobile-menu-btn {
+    display: none;
+  }
+  
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .service-detail, .service-info-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+/* Existing grid styles (update if needed) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Ensure consistent height for all cards */
+.service-card-content {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card-content .btn {
+    margin-top: auto; /* Pushes button to bottom */
+    align-self: flex-start;
+}
